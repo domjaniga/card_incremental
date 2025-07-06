@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://t6iursblroqd"]
+
+[ext_resource type="Texture2D" uid="uid://0ix68mbhwjpa" path="res://assets/backdrop.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b8f7sg7o6u2s0" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://7pecsfhnhqbn" path="res://assets/placeholder_card.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dutq6xe7qs67c" path="res://character.gd" id="2_1bvp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 36
+
+[node name="Main" type="Node" node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("1_h2yge")
+player = NodePath("Player")
+enemy = NodePath("Enemy")
+
+[node name="Character" type="Node" parent="."]
+script = ExtResource("2_1bvp3")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("2_1bvp3")
+health = 100
+damage = 10
+
+[node name="Enemy" type="Node" parent="."]
+script = ExtResource("2_1bvp3")
+health = 100
+damage = 5
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_0xm2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 269.0
+offset_top = 563.0
+offset_right = 1639.0
+offset_bottom = 981.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 22
+columns = 6
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Button4" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Button5" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Button6" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("1_ig7tw")
+
+[node name="Enemy_health" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.419
+anchor_right = 0.5
+anchor_bottom = 0.419
+offset_left = -53.5
+offset_top = -25.52
+offset_right = 53.5
+offset_bottom = 24.48
+grow_horizontal = 2
+grow_vertical = 2
+text = "200"
+label_settings = SubResource("LabelSettings_h2yge")
+horizontal_alignment = 1
+
+[node name="Player_health" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.959
+anchor_right = 0.5
+anchor_bottom = 0.959
+offset_left = -31.0
+offset_top = -44.7201
+offset_right = 31.0
+offset_bottom = 5.27991
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_1bvp3")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 5.0
+autostart = true
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="died" from="Enemy" to="." method="_on_enemy_died"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
