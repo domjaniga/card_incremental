@@ -1,0 +1,166 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfl5ithny0n8n"]
+
+[ext_resource type="Script" uid="uid://5eo8wt08j51p" path="res://main_menu.gd" id="1_x4jax"]
+[ext_resource type="FontFile" uid="uid://b40k4t4d8rdgp" path="res://Kingsbridge Cd Sb.otf" id="2_llbqc"]
+
+[sub_resource type="Theme" id="Theme_rhts7"]
+default_font_size = 40
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7vrkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06t4h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.969137, 0.969137, 0.969137, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0, 0, 0, 0.32549)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.969137, 0.969137, 0.969137, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0, 0, 0, 0.32549)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.969137, 0.969137, 0.969137, 1)
+border_color = Color(0.968627, 0.968627, 0.968627, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 12.0
+expand_margin_top = 9.0
+expand_margin_right = 12.0
+expand_margin_bottom = 9.0
+shadow_color = Color(0, 0, 0, 0.32549)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.969137, 0.969137, 0.969137, 1)
+border_color = Color(0.968627, 0.968627, 0.968627, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0, 0, 0, 0.32549)
+shadow_offset = Vector2(2, 2)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00216)
+theme = SubResource("Theme_rhts7")
+script = ExtResource("1_x4jax")
+
+[node name="color_backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.187486, 0.517925, 0.535946, 1)
+
+[node name="main_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -129.5
+offset_right = 241.0
+offset_bottom = 129.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+
+[node name="game_title" type="Label" parent="main_container"]
+material = SubResource("CanvasItemMaterial_7vrkn")
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_llbqc")
+theme_override_font_sizes/font_size = 120
+text = "YOU SUCK"
+horizontal_alignment = 1
+
+[node name="buttons_container" type="HBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 35
+
+[node name="start_button" type="Button" parent="main_container/buttons_container"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "KILLCK SHIT
+AGAIN"
+
+[node name="shutdown_button" type="Button" parent="main_container/buttons_container"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "SAVE & SHUT THE
+FUCK DOWN"
+
+[node name="note_to_self" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 718.448
+offset_right = 1441.0
+offset_bottom = 773.448
+theme_override_font_sizes/font_size = 14
+text = "saves don't work yet..."
+
+[connection signal="pressed" from="main_container/buttons_container/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="main_container/buttons_container/shutdown_button" to="." method="_on_shutdown_button_pressed"]

@@ -43,10 +43,14 @@ func _on_button_pressed() -> void:
 
 
 func _on_enemy_died() -> void:
+	# Change to win_screen
+	get_tree().change_scene_to_file("res://win_screen.tscn")
 	enemy_health_label.text = str("DEAD!")
 	$Timer.stop()
 
 
 func _on_player_died() -> void:
+	# Change to loss_screen
+	get_tree().change_scene_to_file("res://loss_screen.tscn")
 	player_health_label.text = str("DIED!")
 	$Timer.stop()
