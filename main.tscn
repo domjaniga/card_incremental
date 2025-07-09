@@ -59,12 +59,10 @@ layout_mode = 2
 icon = ExtResource("1_ig7tw")
 
 [node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
-visible = false
 layout_mode = 2
 icon = ExtResource("1_ig7tw")
 
 [node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/GridContainer"]
-visible = false
 layout_mode = 2
 icon = ExtResource("1_ig7tw")
 
@@ -84,6 +82,7 @@ layout_mode = 2
 icon = ExtResource("1_ig7tw")
 
 [node name="Enemy_health" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.419
@@ -100,6 +99,7 @@ label_settings = SubResource("LabelSettings_h2yge")
 horizontal_alignment = 1
 
 [node name="Player_health" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.959

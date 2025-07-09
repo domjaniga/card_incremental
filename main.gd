@@ -7,8 +7,11 @@ extends Node
 @export var player : Character
 @export var enemy : Character
 
-@onready var player_health_label: Label = $CanvasLayer/Player_health
-@onready var enemy_health_label: Label = $CanvasLayer/Enemy_health
+#@onready var player_health_label: Label = $CanvasLayer/Player_health
+#@onready var enemy_health_label: Label = $CanvasLayer/Enemy_health
+
+@onready var player_health_label: Label = %Player_health
+@onready var enemy_health_label: Label = %Enemy_health
 
 
 func _ready():
@@ -16,6 +19,10 @@ func _ready():
 	player_health_label.text = str(player.health)
 	enemy_health_label.text = str(enemy.health)
 	
+	#StaticData.import_json("res://data/card_data.json")
+	#print(StaticData.card_database["1"]["card_attack"])
+	#print(StaticData.card_database)
+	#print(static_data.card_databse["c1"])
 	
 func _on_timer_timeout() -> void:
 	# Everytime after a timer wait time
